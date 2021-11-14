@@ -19,10 +19,12 @@ const formData = {};
 
 function onFormSubmit(e) {
     e.preventDefault();
-    console.log('Отправляем форму');
-
+    const { email, message } = e.currentTarget.elements;
+    if (!email.value || !message.value) {
+        return alert('Заполните все поля!');
+    }
     e.currentTarget.reset();
-    localStorage.removeItem(STORAGE_KEY);  
+    localStorage.removeItem(STORAGE_KEY);
 }
 
 function fillinTextfields() {
