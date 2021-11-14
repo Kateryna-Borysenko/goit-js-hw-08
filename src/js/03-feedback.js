@@ -1,4 +1,5 @@
-import throttle from 'lodash.throttle';
+import throttle from "lodash.throttle";
+
 
 const STORAGE_KEY = 'feedback-form-state';
 const refs = {
@@ -42,6 +43,6 @@ refs.form.addEventListener('input', e => {
 
     formData[e.target.name] = e.target.value;
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+    throttle(localStorage.setItem(STORAGE_KEY, JSON.stringify(formData)), 500);
 
 })
